@@ -10,11 +10,8 @@
 #include "stdlib.h"
 #include "stdbool.h"
 void l76_lb_split_nmea_message(char** fields, char* msg, char* delim_char){
-
     char** fields_buff = fields;
     char* msg_buff = msg;
-
-    // Strtok can't use because dynamic allocation, so use strtok_r instead.
     while( (*fields_buff++ = strtok_r(msg_buff, delim_char, &msg_buff)) );
 }
 bool covert_lat_lon_to_float(char* str, float* output){

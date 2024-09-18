@@ -18,8 +18,8 @@ extern "C" {
 extern int64_t get_tick_count();
 
 typedef struct elapsed_timer{
-    int32_t m_duration;
-    int32_t m_start_time;
+    int64_t m_duration;
+    int64_t m_start_time;
 }elapsed_timer_t;
 /**
  * @brief
@@ -33,7 +33,7 @@ static inline void elapsed_timer_reset(elapsed_timer_t* _self){
  * @param _self
  * @param _duration
  */
-static inline void elapsed_timer_resetz(elapsed_timer_t* _self, int32_t _duration){
+static inline void elapsed_timer_resetz(elapsed_timer_t* _self, int64_t _duration){
     _self->m_duration = _duration;
     _self->m_start_time = get_tick_count();
 }
@@ -49,8 +49,8 @@ static inline void elapsed_timer_pass(elapsed_timer_t* _self){
  * @param _self
  * @return
  */
-static inline int32_t elapsed_timer_get_remain(elapsed_timer_t* _self){
-    int32_t remain_time = get_tick_count() - _self->m_start_time;
+static inline int64_t elapsed_timer_get_remain(elapsed_timer_t* _self){
+    int64_t remain_time = get_tick_count() - _self->m_start_time;
     if(remain_time >= _self->m_duration){
         return 0;
     }else{

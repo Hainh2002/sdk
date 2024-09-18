@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.16)
 
 project(sdk)
 
@@ -22,16 +22,11 @@ include_directories(utils
         common/modbus/mb_master
 
         cores/
-        cores/storage
-
-        hals/include
 )
 
 add_subdirectory(utils)
 add_subdirectory(libs/nanoModbus)
 
-add_subdirectory(services/boot_master)
-add_subdirectory(services/bp_management)
 add_subdirectory(services/button)
 
 add_subdirectory(common/modbus/mb_slave)

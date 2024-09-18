@@ -8,7 +8,7 @@
 #ifndef GPS_GPS_H_
 #define GPS_GPS_H_
 //#include "l76lb_hw.h"
-#include "sm_bsp_bpa.h"
+#include "stdint.h"
 
 #define GPS_AT_MODEM_RX_BUFFER_SIZE         256
 #define GPS_AT_MODEM_TX_BUFFER_SIZE         64
@@ -45,22 +45,21 @@ union Sys_time_t{
 
 typedef struct L76_LB_t L76_LB;
 struct L76_LB_t{
-	char* 		rx_res_buffer;
-	int			rx_res_buffer_size;
-	char*		tx_data_buff;
-	uint16_t 	rx_res_index;
-    char*       desired_nmea_msg;
-    uint8_t     desired_msg_len;
-    bool 		gps_lat_lon_valid;
-    char        nmea_msg_buffer[GPS_AT_MODEM_RX_BUFFER_SIZE];
-    float       lat;
-    float       lon;
-    Sys_time    gps_time;
-    bool        is_new_msg;
+	char* 		  rx_res_buffer;
+	int			    rx_res_buffer_size;
+	char*		    tx_data_buff;
+	uint16_t 	  rx_res_index;
+  char*       desired_nmea_msg;
+  uint8_t     desired_msg_len;
+  bool 		    gps_lat_lon_valid;
+  char        nmea_msg_buffer[GPS_AT_MODEM_RX_BUFFER_SIZE];
+  float       lat;
+  float       lon;
+  Sys_time    gps_time;
+  bool        is_new_msg;
 };
 
 void l76_lb_split_nmea_message(char** fields, char* msg, char* delim_char);
-//float    l76_lb_convert_lat_to_float(char *lat_str, char *ns_field);
-//float    l76_lb_convert_lon_to_float(char *lon_str, char *we_field);
 bool covert_lat_lon_to_float(char* str, float* output);
+
 #endif /* COMPONENT_GPS_GPS_H_ */

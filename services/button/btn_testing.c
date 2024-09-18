@@ -28,7 +28,7 @@ int64_t get_tick_count(){
 }
 
 uint8_t button_0_get_state() {
-    printf("key value: %d\n",key_st[48]);
+    printf("key value: %ld\n",key_st[48]);
     if (key_st[48]) return 1;
     return 0;
 }

@@ -1,8 +1,7 @@
-//
-// Created by vnbk on 27/02/2024.
-//
+#ifndef SV_IOT_H
+#define SV_IOT_H
 
-#ifndef EV_SDK_SM_SV_IOT_H
-#define EV_SDK_SM_SV_IOT_H
 
-#endif //EV_SDK_SM_SV_IOT_H
+
+
+#endif //SV_IOT_H
